@@ -4,7 +4,8 @@
   "description": "build application cart services as microservices with fastify (nodejs framework) and mysql",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,9 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "fastify": "^3.14.2",
+    "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
