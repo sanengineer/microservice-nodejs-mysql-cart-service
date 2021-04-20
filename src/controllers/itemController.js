@@ -1,6 +1,5 @@
 const db = require("../models");
 const Item = db.item;
-const Cart = db.cart;
 
 module.exports = {
   getAllItem: async function (req, res) {
@@ -39,6 +38,34 @@ module.exports = {
       .then((data) => {
         res.statusCode = 200;
         res.send(data);
+      })
+      .catch((error) => {
+        res.statusCode = 500;
+        res.send(error);
+      });
+  },
+
+  deleteItem: async (req, res) => {
+    const id = req.params.id;
+
+    Item.destroy({ where: { id: id } })
+      .then((data) => {
+        if (data == 0) {
+          res.statusCode = 204;
+        }
+      })
+      .catch((error) => {
+        res.statusCode = 500;
+        res.send(error);
+      });
+  },
+
+  deleteAllItem: async (req, res) => {
+    Item.destroy({ where: {} })
+      .then((data) => {
+        if (data == 0) {
+          res.statusCode = 204;
+        }
       })
       .catch((error) => {
         res.statusCode = 500;

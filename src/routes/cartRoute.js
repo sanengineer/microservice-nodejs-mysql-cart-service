@@ -12,19 +12,13 @@ const api = async (app) => {
     method: "POST",
     url: "/cart",
     preHandler: userAuthentication,
-    handler: cartController.createOrder,
+    handler: cartController.createCart,
   });
   app.route({
     method: "GET",
     url: "/cart/count",
     preHandler: userAuthentication,
     handler: cartController.countAllCart,
-  });
-  app.route({
-    method: "DELETE",
-    url: "/cart",
-    preHandler: userAuthentication,
-    handler: cartController.deleteAllCart,
   });
 };
 

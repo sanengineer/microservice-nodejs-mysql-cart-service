@@ -20,6 +20,18 @@ const apiItem = async (app) => {
     preHandler: userAuthentication,
     handler: itemController.createItem,
   });
+  app.route({
+    method: "DELETE",
+    url: "/item",
+    preHandler: userAuthentication,
+    handler: itemController.deleteAllItem,
+  });
+  app.route({
+    method: "DELETE",
+    url: "/item/:id",
+    preHandler: userAuthentication,
+    handler: itemController.deleteItem,
+  });
 };
 
 module.exports = apiItem;

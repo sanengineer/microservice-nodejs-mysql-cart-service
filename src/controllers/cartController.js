@@ -55,7 +55,7 @@ module.exports = {
       });
   },
 
-  createOrder: async function (req, res) {
+  createCart: async function (req, res) {
     //debug
     // req.log.info("create cart");
 
@@ -71,20 +71,6 @@ module.exports = {
         console.log("\n error message:", e, "\n");
 
         res.send({ message: "user_id cannot be empty" });
-      });
-  },
-
-  deleteAllCart: async (req, res) => {
-    Cart.destroy({ where: {} })
-      .then((data) => {
-        if (data == 0) {
-          res.statusCode = 204;
-          res.send();
-        }
-      })
-      .catch((e) => {
-        res.statusCode = 500;
-        res.send(e);
       });
   },
 };
