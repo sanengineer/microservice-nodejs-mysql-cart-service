@@ -20,6 +20,12 @@ const api = async (app) => {
     preHandler: userAuthentication,
     handler: cartController.countAllCart,
   });
+  app.route({
+    method: "GET",
+    url: "/cart/:cart_id",
+    preHandler: userAuthentication,
+    handler: cartController.getOneCart,
+  });
 };
 
 console.log(userAuthentication);

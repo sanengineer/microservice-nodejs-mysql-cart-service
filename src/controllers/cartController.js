@@ -40,6 +40,33 @@ module.exports = {
       });
   },
 
+  getOneCart: async (req, res) => {
+    const id = req.params.cart_id;
+
+    Cart.findByPk(id, {
+      include: [
+        {
+          model: Item,
+          as: "item_id",
+          attributes: {
+            exclude: ["cart_id"],
+          },
+        },
+      ],
+    })
+      .then((data) => {
+        //debug
+        console.log("DATA:", data);
+
+        res.statusCode = 200;
+        res.send(data);
+      })
+      .catch((error) => {
+        res.statusCode = 500;
+        res.send(error);
+      });
+  },
+
   countAllCart: async function (req, res) {
     //debug
     // req.log.info("query cart");
@@ -47,7 +74,9 @@ module.exports = {
     Cart.count()
       .then((data) => {
         res.statusCode = 200;
-        res.send(data);
+        res.send({
+          cart_number: String(data),
+        });
       })
       .catch((err) => {
         res.statusCode = 500;
@@ -61,7 +90,11 @@ module.exports = {
 
     const new_cart = req.body;
 
-    Cart.create(new_cart)
+    const { user_id } = req.body;
+
+    console.log("USER_ID:", user_id);
+
+    Cart.create(new_cart, { where: { user_id: user_id } })
       .then((data) => {
         res.statusCode = 200;
         res.send(data);

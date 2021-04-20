@@ -21,6 +21,7 @@ module.exports = (sequelize, Sequelize) => {
         defaultValue: Sequelize.UUIDV4,
       },
       user_id: {
+        unique: true,
         type: Sequelize.UUID,
       },
       createdAt: {

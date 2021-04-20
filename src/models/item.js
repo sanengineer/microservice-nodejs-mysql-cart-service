@@ -21,8 +21,9 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      product_id: { type: Sequelize.UUID },
+      product_id: { type: Sequelize.UUID, unique: true },
       cart_id: {
+        unique: true,
         type: Sequelize.UUID,
         allowNull: false,
         references: {
