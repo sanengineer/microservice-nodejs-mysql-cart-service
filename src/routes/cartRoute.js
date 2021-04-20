@@ -1,7 +1,7 @@
 const cartController = require("../controllers/cartController");
 const userAuthentication = require("../middlewares/userAuthMiddleware");
 
-const api = async (app) => {
+const apiCart = async (app) => {
   app.route({
     method: "GET",
     url: "/cart",
@@ -30,4 +30,4 @@ const api = async (app) => {
 
 console.log(userAuthentication);
 
-module.exports = api;
+module.exports = apiCart;

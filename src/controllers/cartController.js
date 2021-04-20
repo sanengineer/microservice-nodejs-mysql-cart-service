@@ -99,11 +99,12 @@ module.exports = {
         res.statusCode = 200;
         res.send(data);
       })
-      .catch((e) => {
+      .catch((error) => {
         //debug
-        console.log("\n error message:", e, "\n");
+        console.log("\n ERROR MESSAGE:", error, "\n");
 
-        res.send({ message: "user_id cannot be empty" });
+        // res.statusCode = 500;
+        res.send(error);
       });
   },
 };

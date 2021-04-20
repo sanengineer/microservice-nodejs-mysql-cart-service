@@ -1,7 +1,7 @@
 require("dotenv").config();
 const fastify = require("fastify");
 const cartRoute = require("./src/routes/cartRoute");
-const itemRoute = require("./src/routes/itemRoutes");
+const itemRoute = require("./src/routes/itemRoute");
 
 const app = fastify({
   // logger: {
