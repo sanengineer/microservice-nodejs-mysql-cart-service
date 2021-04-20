@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      product_id: { type: Sequelize.UUID, defaultValue: Sequelize.UUIDV4 },
+      product_id: {
+        type: Sequelize.UUID,
+        allowNull: false,
+      },
       cart_id: {
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         references: {
           model: "carts",

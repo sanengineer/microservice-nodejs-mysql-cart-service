@@ -9,11 +9,10 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      item_id: {
+      user_id: {
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
       },
-      user_id: { type: Sequelize.UUID, defaultValue: Sequelize.UUIDV4 },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -35,6 +35,8 @@ const userAuthentication = async (request, reply, done) => {
   const req = http.request(options, (res) => {
     let data = "";
 
+    console.log("DATA:", data);
+
     res.on("data", (chunk) => {
       data += chunk;
     });
@@ -44,27 +46,27 @@ const userAuthentication = async (request, reply, done) => {
 
       if (res.statusCode == 401) {
         //debug
-        console.log(JSON.parse(data));
+        // console.log(JSON.parse(data));
 
         reply.statusCode = res.statusCode;
         reply.send(JSON.parse(data));
       } else if (res.statusCode == 200) {
         //debug
-        console.log(JSON.parse(data));
+        // console.log(JSON.parse(data));
         reply.send(dataResponse);
         done();
       }
-
-      req.write(postData);
-
-      req.on("error", (error) => {
-        //debug
-        console.log("request error:", error);
-      });
-
-      request.log.info("test request middleware it's ok");
     });
   });
+
+  req.write(postData);
+
+  req.on("error", (error) => {
+    //debug
+    console.log("request error:", error);
+  });
+
+  request.log.info("test request middleware it's ok");
 };
 
 console.log("data response:", dataResponse);

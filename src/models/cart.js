@@ -20,13 +20,8 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      item_id: {
-        type: Sequelize.UUID,
-        // defaultValue: Sequelize.UUIDV4,
-      },
       user_id: {
         type: Sequelize.UUID,
-        // defaultValue: Sequelize.UUIDV4,
       },
       createdAt: {
         allowNull: false,
@@ -42,6 +37,16 @@ module.exports = (sequelize, Sequelize) => {
       modelName: "cart",
     }
   );
+
+  // cart.associate = function (models) {
+  //   //debug
+  //   console.log("MODEL ITEM:", models.item);
+
+  //   cart.hasMany(models.item, {
+  //     foreignKey: { field: "id" },
+  //     as: "cartId",
+  //   });
+  // };
 
   return cart;
 };

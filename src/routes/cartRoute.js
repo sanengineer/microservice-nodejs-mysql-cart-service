@@ -14,6 +14,18 @@ const api = async (app) => {
     preHandler: userAuthentication,
     handler: cartController.createOrder,
   });
+  app.route({
+    method: "GET",
+    url: "/cart/count",
+    preHandler: userAuthentication,
+    handler: cartController.countAllCart,
+  });
+  app.route({
+    method: "DELETE",
+    url: "/cart",
+    preHandler: userAuthentication,
+    handler: cartController.deleteAllCart,
+  });
 };
 
 console.log(userAuthentication);

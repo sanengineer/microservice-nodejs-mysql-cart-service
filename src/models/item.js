@@ -21,10 +21,9 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      product_id: { type: Sequelize.UUID, defaultValue: Sequelize.UUIDV4 },
+      product_id: { type: Sequelize.UUID },
       cart_id: {
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         references: {
           model: "carts",
@@ -45,6 +44,15 @@ module.exports = (sequelize, Sequelize) => {
       modelName: "item",
     }
   );
+
+  // item.associate = function (models) {
+  //   //debug
+  //   console.log("MODEL CART:", models.cart);
+
+  //   item.belongsTo(models.cart, {
+  //     foreignKey: "cart_id",
+  //   });
+  // };
 
   // order.beforeCreate((order) => (order.id = uuidv4()));
   return item;
