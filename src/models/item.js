@@ -45,15 +45,6 @@ module.exports = (sequelize, Sequelize) => {
     }
   );
 
-  // item.associate = function (models) {
-  //   //debug
-  //   console.log("MODEL CART:", models.cart);
-
-  //   item.belongsTo(models.cart, {
-  //     foreignKey: "cart_id",
-  //   });
-  // };
-
   // order.beforeCreate((order) => (order.id = uuidv4()));
   return item;
 };

@@ -38,15 +38,5 @@ module.exports = (sequelize, Sequelize) => {
     }
   );
 
-  // cart.associate = function (models) {
-  //   //debug
-  //   console.log("MODEL ITEM:", models.item);
-
-  //   cart.hasMany(models.item, {
-  //     foreignKey: { field: "id" },
-  //     as: "cartId",
-  //   });
-  // };
-
   return cart;
 };

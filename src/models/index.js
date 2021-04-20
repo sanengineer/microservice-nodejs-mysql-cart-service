@@ -48,7 +48,7 @@ db.Sequelize = Sequelize;
 db.cart = require("./cart")(sequelize, Sequelize);
 db.item = require("./item")(sequelize, Sequelize);
 
-db.item.belongsTo(db.cart, { foreignKey: "cart_id" });
+// db.item.belongsTo(db.cart, { foreignKey: "cart_id" });
 db.cart.hasMany(db.item, {
   foreignKey: "cart_id",
   as: "item_id",

@@ -4,13 +4,7 @@ const Cart = db.cart;
 
 module.exports = {
   getAllItem: async function (req, res) {
-    Item.findAll({
-      include: [
-        {
-          model: Cart,
-        },
-      ],
-    })
+    Item.findAll()
       .then((data) => {
         if (data == 0) {
           res.statusCode = 204;
