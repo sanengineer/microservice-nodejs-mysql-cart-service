@@ -40,6 +40,36 @@ module.exports = {
       });
   },
 
+  getOneCartByUserId: async (req, res) => {
+    const user_id = req.params.user_id;
+
+    Cart.findOne({
+      where: {
+        user_id: user_id,
+      },
+      include: [
+        {
+          model: Item,
+          as: "item_id",
+          attributes: {
+            exclude: ["cart_id"],
+          },
+        },
+      ],
+    })
+      .then((data) => {
+        //debug
+        console.log("DATA:", data);
+
+        res.statusCode = 200;
+        res.send(data);
+      })
+      .catch((error) => {
+        res.statusCode = 500;
+        res.send(error);
+      });
+  },
+
   getOneCart: async (req, res) => {
     const id = req.params.cart_id;
 

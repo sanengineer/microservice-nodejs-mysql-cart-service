@@ -4,6 +4,7 @@
   "description": "build application cart services as microservices with fastify (nodejs framework) and mysql",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "test",
     "dev": "nodemon server.js"
   },

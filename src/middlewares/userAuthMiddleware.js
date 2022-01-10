@@ -22,7 +22,7 @@ const userAuthentication = async (request, reply, done) => {
   const options = {
     hostname: `${userServicesHostname}`,
     port: `${userServicePort}`,
-    path: "/user/auth/authenticate",
+    path: "/user/3/auth/authenticate",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
