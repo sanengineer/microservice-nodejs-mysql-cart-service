@@ -9,8 +9,10 @@ const app = fastify({
   // },
 });
 
-const PORT = process.env.PORT || 5000;
-const HOSTNAME = process.env.HOSTNAME || "localhost";
+const PORT = process.env.PORT || 80;
+const HOSTNAME = process.env.HOSTNAME || "0.0.0.0";
 
 app.register(cartRoute, itemRoute);
-app.listen(PORT, () => console.log(`server run on http://${HOSTNAME}:${PORT}`));
+app.listen(PORT, HOSTNAME, () =>
+  console.log(`server run on http://${HOSTNAME}:${PORT}`)
+);
