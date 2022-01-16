@@ -1,7 +1,7 @@
 {
-  "name": "fastify-nodejs-mysql-cart-services",
+  "name": "microservice-nodejs-mysql-cart-service",
   "version": "1.0.0",
-  "description": "build application cart services as microservices with fastify (nodejs framework) and mysql",
+  "description": "build application cart service as microservice with fastify (nodejs framework) and mysql",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sanengineer/microservices-nodejs-mysql-cart-services.git"
+    "url": "https://github.com/sanengineer/microservice-nodejs-mysql-cart-service.git"
   },
   "keywords": [
     "nodejs",
